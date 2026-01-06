@@ -26,7 +26,6 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
   const showCopyLinkButton = ref(true);
   const onJumpToPath = ref((path: EventPath) => {});
   const onJumpToRange = ref((range: DateRangeIso) => {});
-  const onGetSvg = ref((params: any): any => {});
 
   const hadInitialState = ref<boolean>(
     // @ts-ignore
@@ -130,7 +129,6 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
     jumpToRange: ({ dateRangeIso }) => {
       onJumpToRange.value?.(dateRangeIso);
     },
-    getSvg: (params: any) => onGetSvg.value?.(params),
   });
 
   const setHoveringPath = (path?: EventPath) => {
@@ -172,7 +170,10 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
       scale,
       preferredInterpolationFormat,
     };
-    postRequest("editEventDateRange", params);
+    postRequest("editEventDateRange", {
+      ...params,
+      scale: params.scale === "cent" ? "decade" : params.scale,
+    });
   };
 
   const requestStateUpdate = () => {
@@ -188,7 +189,6 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
 
     onJumpToPath,
     onJumpToRange,
-    onGetSvg,
 
     requestStateUpdate,
     setHoveringPath,

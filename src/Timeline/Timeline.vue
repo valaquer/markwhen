@@ -15,12 +15,10 @@ import { useDebounceFn, useResizeObserver } from "@vueuse/core";
 import { toDateRange, type DateRange } from "@markwhen/parser";
 import { dateMidpoint, diffScale } from "./utilities/dateTimeUtilities";
 import { isEvent } from "@markwhen/parser";
-import DebugView from "./DebugView.vue";
 import { ranges } from "@/utilities/ranges";
 import { useNodePosition } from "./Events/composables/useNodePosition";
 import { useEventFinder } from "@/utilities/useEventFinder";
 import { useMarkwhenStore } from "@/Markwhen/markwhenStore";
-import SvgView from "./Svg/SvgView.vue";
 import Settings from "./Settings/Settings.vue";
 import ReferenceDateVue from "./Events/ReferenceDate.vue";
 import NowLine from "./Events/NowLine.vue";
@@ -188,24 +186,6 @@ const scrollToDateRangeImmediate = (
   });
 };
 
-const scrollToDateRange = (dateRange?: DateRange) => {
-  if (!dateRange) {
-    return;
-  }
-  if (timelineStore.shouldZoomWhenScrolling) {
-    const { width } = getViewport();
-    // We still want to be zoomed out a bit
-    const scale = scaleToGetDistance(width, dateRange) / 3;
-    timelineStore.setPageScale(scale);
-    nextTick(() => {
-      scrollToDate(dateMidpoint(dateRange));
-      setViewportDateInterval();
-    });
-  } else {
-    scrollToDate(dateMidpoint(dateRange), true);
-  }
-};
-
 const scrollToNow = () => scrollToDate(DateTime.now(), true);
 watch(
   [() => timelineStore.hideNowLine, () => timelineStore.goToNowSemaphore],
@@ -227,7 +207,6 @@ onActivated(() => {
 const setInitialScrollAndScale = () =>
   scrollToDateRangeImmediate(timelineStore.pageRange);
 
-const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
 onMounted(() => {
   // scrollToNow();
   timelineStore.setViewportGetter(getViewport);
@@ -253,45 +232,6 @@ onMounted(() => {
   // }
 });
 
-const svgParams = ref();
-const svgHolder = ref<HTMLDivElement>();
-const svgView = ref<typeof SvgView>();
-
-const totalWidth = computed(() => {
-  const range = ranges(timelineStore.transformedEvents, recurrenceLimit) || {
-    fromDateTime: DateTime.now(),
-    toDateTime: DateTime.now(),
-  };
-  return timelineStore.scalelessDistanceBetweenDates(
-    range.fromDateTime,
-    range.toDateTime
-  );
-});
-
-markwhenStore.onGetSvg = (params) => {
-  svgParams.value = { diffScale: "hours", showViewport: false, ...params };
-  return new Promise((resolve, reject) => {
-    // Set timeout seems to work better than nextTick (or nested nextTicks)
-    setTimeout(() => {
-      if (svgHolder.value?.firstChild) {
-        const svgWidth = svgView.value!.getRightmostX();
-        const svgHeight = totalWidth.value;
-        const ratio = svgWidth / svgHeight;
-
-        const data = new XMLSerializer().serializeToString(
-          svgHolder.value.firstChild
-        );
-
-        resolve({
-          svg: data,
-          ratio,
-        });
-      }
-      resolve(null);
-    }, 500);
-  });
-};
-
 const pointerdown = useDoubleTap(setViewportDateInterval);
 </script>
 
@@ -314,9 +254,6 @@ const pointerdown = useDoubleTap(setViewportDateInterval);
       <Events />
       <Settings></Settings>
       <!-- <DebugView v-if="true" /> -->
-      <div ref="svgHolder" style="width: 0; height: 0">
-        <SvgView v-if="svgParams" v-bind="svgParams" ref="svgView"></SvgView>
-      </div>
     </div>
   </div>
 </template>
