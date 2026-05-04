@@ -121,7 +121,10 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
       app.value = s;
     },
     markwhenState: (s) => {
-      markwhen.value = s;
+      markwhen.value = {
+        ...s,
+        parsed: Array.isArray(s.parsed) ? s.parsed[0] : s.parsed,
+      };
     },
     jumpToPath: ({ path }) => {
       onJumpToPath.value?.(path);
