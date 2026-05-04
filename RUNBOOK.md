@@ -127,6 +127,7 @@ Boss tests in browser.
 | 005 | Remove non-functional + button (NewEvent) | Events.vue (import + template), NewEvent.vue (delete), useCreateEvent.ts (delete), ARCHITECTURE.md (update) | Remove import + template from Events.vue. Delete NewEvent.vue and useCreateEvent.ts. Update ARCHITECTURE.md. | SUCCESS | req-005-remove-new-event | Merged to main. Pushed to GitHub. |
 | 006 | Now line date label (two failed attempts) | NowLine.vue, then TimeMarkersBack.vue | Attempt 1: label in NowLine.vue — behind fixed header. Attempt 2: label in TimeMarkersBack.vue header — overlapped markers. See FAILED ATTEMPTS. | FAIL x2 | req-006-now-line-label | Branch deleted. Main clean at REQ-005. |
 | 007 | Now line date label below header | TimeMarkersBack.vue (script + template) | Fixed label div at `top: 24px` below the h-6 header bar. `pointer-events-none`. Same `nowLabelPos` calculation. | SUCCESS | req-007-now-line-label | Merged to main. Pushed to GitHub. |
+| 008 | Match Now label style to hover label | TimeMarkersBack.vue (2 classes) | Changed `text-sm` → `text-xs font-bold`. Added `mt-px` to hover label for alignment. | SUCCESS | req-008-now-label-style | Merged to main. Pushed to GitHub. |
 
 ---
 
