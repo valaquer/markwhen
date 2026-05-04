@@ -76,6 +76,12 @@ QA verifies:
 - Blast radius — nothing broken
 - Visual verification was done
 
+**Output verification checklist (mechanical, before judgment calls):**
+1. Does the output file exist? (`ls -la` the target path)
+2. What's its timestamp? (matches this session, not stale)
+3. What's its size? (non-zero, reasonable)
+4. Do visual claims in the submission match the source code state? (cross-check actual values, not impressions)
+
 If rejected: fix and resubmit. Do not proceed.
 
 ### 2.9 Commit and Push
@@ -110,6 +116,7 @@ Boss tests in browser.
 | REQ | Description | Blast Radius | Plan | Status | Branch | Notes |
 |-----|-------------|--------------|------|--------|--------|-------|
 | 001 | Render fork with Tom Sawyer sample data | markwhenStore.ts (lines 123-127), useLpc.ts (line 17) | Fix parsed-array normalization in both CLI state entry points. Build, render via scripts/render.mjs, open in Safari. | SUCCESS | req-001-render-tom-sawyer | Merged to main. Pushed to GitHub. |
+| 002 | Centralize all colors into palette.ts config | 29 files (palette.ts new, 28 modified). All color definitions across .vue, .ts, .css, tailwind.config.js. | Create palette.ts as single source. CSS vars via applyTheme(). Semantic Tailwind tokens (th-*). Replace all dark: classes and inline RGB ternaries. | SUCCESS | req-002-centralize-colors-dark-mode | Color centralization only. Dark mode activation deferred to REQ-003. |
 
 ---
 
