@@ -125,6 +125,8 @@ Boss tests in browser.
 | 003 | Dark mode activation + CSS format fix | palette.ts (60 values), useLpc.ts (1 line), 5 .vue files (inline adapters), App.vue (debug removal) | Space-separate all RGB values for Tailwind compatibility. Add rgb() helper for inline rgba() calls. Set isDark: true in initialAppStateFromMarkwhen. | SUCCESS | req-003-dark-mode-activation | Fixed latent REQ-002 defect + enabled dark mode. |
 | 004 | Persist zoom scale across browser sessions | timelineStore.ts (3 locations) | Add lsRef for pageScale with -1 sentinel. Initialize from persisted value if exists. Persist on every setPageScale call. | SUCCESS | req-004-persist-zoom | Merged to main. Pushed to GitHub. |
 | 005 | Remove non-functional + button (NewEvent) | Events.vue (import + template), NewEvent.vue (delete), useCreateEvent.ts (delete), ARCHITECTURE.md (update) | Remove import + template from Events.vue. Delete NewEvent.vue and useCreateEvent.ts. Update ARCHITECTURE.md. | SUCCESS | req-005-remove-new-event | Merged to main. Pushed to GitHub. |
+| 006 | Now line date label (two failed attempts) | NowLine.vue, then TimeMarkersBack.vue | Attempt 1: label in NowLine.vue — behind fixed header. Attempt 2: label in TimeMarkersBack.vue header — overlapped markers. See FAILED ATTEMPTS. | FAIL x2 | req-006-now-line-label | Branch deleted. Main clean at REQ-005. |
+| 007 | Now line date label below header | TimeMarkersBack.vue (script + template) | Fixed label div at `top: 24px` below the h-6 header bar. `pointer-events-none`. Same `nowLabelPos` calculation. | SUCCESS | req-007-now-line-label | Merged to main. Pushed to GitHub. |
 
 ---
 
