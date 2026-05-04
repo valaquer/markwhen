@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import { computed } from "vue";
-import NewEvent from "./NewEvent/NewEvent.vue";
 import { useNodeStore } from "../useNodeStore";
 import EventNodeRow from "./EventNodeRow.vue";
 import type { Path } from "@markwhen/parser";
@@ -72,7 +71,6 @@ const mousemove = (e: MouseEvent) => {
   >
     <EventNodeRow v-bind="props(path, eventy)"></EventNodeRow>
   </template>
-  <new-event />
   <GanttSidebar />
   <!-- </div> -->
 </template>

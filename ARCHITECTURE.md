@@ -85,10 +85,7 @@ src/
           composables/
             useResize.ts     — Composable for drag-to-resize and drag-to-move events. Touch + mouse support. Computes new date ranges from pixel offsets.
 
-      NewEvent/
-        NewEvent.vue         — "+" button for creating events via click-drag. Requires editor backend (non-functional in static HTML).
-        composables/
-          useCreateEvent.ts  — Composable for event creation drag interaction.
+      NewEvent/ — REMOVED (non-functional + button, no editor backend).
 
       Section/               — Group/section rendering.
         Section.vue          — Section container with SectionHeader + ExpandedSectionBackground + DepthIndicator. Handles collapse/expand.
@@ -354,7 +351,7 @@ User action: ctrl+scroll (zoomer.ts) or pinch (useGestures.ts)
 | Collapse state | `collapseStore.ts` — Set<string> of collapsed paths | Collapse/expand non-functional |
 | Visible node culling | `useNodeStore.ts:113-191` — filters by viewport bounds | Wrong events shown, performance degradation |
 | Gantt sidebar | `GanttSidebar.vue` — task tree in gantt mode | Gantt mode sidebar missing |
-| New event button | `NewEvent.vue` — click-drag to create | Non-functional in static HTML (no editor backend) |
+| New event button | REMOVED (REQ-005) — was non-functional in static HTML, no editor backend |
 | Now line | `NowLine.vue` — vertical line at current time | Time indicator missing |
 | Event editing | `useResize.ts`, `DragHandle.vue`, `MoveWidgets.vue` | Drag-to-resize/move breaks |
 | Markdown content | `EventMarkdown.vue` — checkboxes, lists, images | Event descriptions don't render |
