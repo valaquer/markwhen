@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { viewportLeftMarginPixels } from "../utilities/dateTimeUtilities";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { dateScale } from "@/Timeline/utilities/dateTimeUtilities";
 import {
   useMarkersStore,
@@ -29,6 +29,24 @@ const { getWeekday } = useWeekdayCache();
 const dark = computed(() => timelineStore.darkMode);
 const colors = computed(() => dark.value ? theme.dark : theme.light);
 const nodeStore = useNodeStore();
+
+const now = ref(DateTime.now());
+const setNow = () => {
+  now.value = DateTime.now();
+  setTimeout(() => setNow(), 1000 * 6);
+};
+onMounted(() => { setNow(); });
+
+const nowLineLeft = computed(() =>
+  Math.min(
+    Math.max(0, timelineStore.distanceFromBaselineLeftmostDate(now.value)),
+    timelineStore.pageSettings.viewport.width * 6
+  )
+);
+const nowLabelPos = computed(
+  () => nowLineLeft.value - timelineStore.pageSettings.viewport.left
+);
+const nowLabel = computed(() => now.value.toLocaleString(DateTime.DATE_HUGE));
 
 const leftMargin = viewportLeftMarginPixels;
 
@@ -140,9 +158,16 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 </script>
 
 <template>
-  <div
-    class="fixed top-0 left-0 right-0 h-6 bg-th-surface/95 z-30 border-b border-th-border"
-  ></div>
+    <div
+      class="fixed top-0 left-0 right-0 h-6 bg-th-surface/95 z-30 border-b border-th-border"
+    ></div>
+    <div
+      v-if="!timelineStore.hideNowLine"
+      class="fixed pointer-events-none text-xs whitespace-nowrap text-th-text bg-th-surface/90 pl-2 pr-1 py-0.5 z-30 rounded"
+      :style="`top: 24px; left: ${nowLabelPos}px`"
+    >
+      {{ nowLabel }}
+    </div>
   <div
     v-for="timeMarker in markersStore.markers"
     :id="'' + timeMarker.ts"
