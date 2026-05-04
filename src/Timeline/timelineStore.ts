@@ -74,6 +74,7 @@ export const useTimelineStore = defineStore("timeline", () => {
     "original"
   );
   const progressDisplay = lsRef<"on" | "off">("progressDisplay2", "on");
+  const persistedScale = lsRef<number>("pageScale", -1);
 
   const pageTimeline = computed(() => markwhenState.value.parsed);
   const pageTimelineMetadata = computed(() => {
@@ -136,7 +137,11 @@ export const useTimelineStore = defineStore("timeline", () => {
   const pageSettings = ref(
     (() => {
       const viewport = viewportGetter.value?.();
-      return initialPageSettings(markwhenState.value?.parsed, viewport);
+      const settings = initialPageSettings(markwhenState.value?.parsed, viewport);
+      if (persistedScale.value >= 0) {
+        settings.scale = persistedScale.value;
+      }
+      return settings;
     })()
   );
   const startedWidthChange = ref(false);
@@ -324,6 +329,7 @@ export const useTimelineStore = defineStore("timeline", () => {
   };
   const setPageScale = (s: number) => {
     pageSettings.value.scale = s;
+    persistedScale.value = s;
     return true;
   };
   const setStartedWidthChange = (started: boolean) => {
