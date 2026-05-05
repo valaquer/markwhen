@@ -17,6 +17,21 @@ const markerStore = useMarkersStore();
 
 const leftMargin = viewportLeftMarginPixels;
 
+const hoveredMarkerText = computed(() => {
+  const marker = markerStore.hoveringMarker;
+  if (!marker) return '';
+  const dt = marker.dateTime;
+  if (currentDateResolution.value > 5) return dt.year;
+  if (currentDateResolution.value > 3) return dt.toLocaleString(DateTime.DATE_HUGE);
+  return dt.toLocaleString(DateTime.DATETIME_HUGE_WITH_SECONDS);
+});
+
+const hoveredMarkerLeft = computed(() => {
+  const marker = markerStore.hoveringMarker;
+  if (!marker) return -9999;
+  return timelineStore.distanceFromBaselineLeftmostDate(marker.dateTime) - timelineStore.pageSettings.viewport.left;
+});
+
 const currentDateResolution = computed(() => {
   for (let i = 0; i < timelineStore.weights.length; i++) {
     if (timelineStore.weights[i] > timeMarkerWeightMinimum) {
@@ -96,16 +111,17 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
           v-if="currentDateResolution <= 6"
           class="flex flex-row pl-1"
         >
-          <h6
-            class="whitespace-nowrap"
-            style="font-size: 11px;"
-            v-if="isHovering(timeMarker)"
-          >
-            {{ hoveringText(timeMarker) }}
-          </h6>
             <h6 class="whitespace-nowrap" style="font-size: 11px;">&nbsp;</h6>
         </div>
       </div>
+    </div>
+    <div
+      v-if="markerStore.hoveringMarker"
+      class="fixed pointer-events-none whitespace-nowrap text-th-text bg-th-surface/90 pl-2 pr-1 py-0.5 z-30 rounded"
+      :style="`top: 36px; left: ${hoveredMarkerLeft}px; font-size: 11px;`"
+    >
+      {{ hoveredMarkerText }}
+    </div>
     </div>
     <Settings />
   </div>
