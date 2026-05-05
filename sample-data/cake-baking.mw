@@ -1,6 +1,6 @@
 ---
-title: How to Bake a Cake
-description: A fictional timeline — swimlanes, goals, subgoals, and milestones
+title: Org Swimlanes — Fictional Cake Baking
+description: 7 org domains mapped to cake baking phases — swimlanes, goals, subgoals, milestones
 timezone: America/New_York
 ---
 
@@ -12,7 +12,7 @@ timezone: America/New_York
 #finance: #10B981
 #personal: #EC4899
 
-# Strategy — Recipe Planning #strategy
+# Strategy #strategy
 style: section
 
 2026-05-01: Research cake styles and choose a recipe #strategy
@@ -25,7 +25,7 @@ Flour, sugar, eggs, butter, baking powder, vanilla extract, milk, salt. Cross-re
 2026-05-03: Procure all ingredients from store #strategy
 Check expiration dates. Bring everything to room temperature.
 
-# Tooling — Equipment Setup #tooling
+# Tooling #tooling
 style: section
 
 2026-05-04: Verify all baking equipment is available #tooling
@@ -38,7 +38,7 @@ Position rack in the center. Line cake pans with parchment rounds.
 2026-05-05: Grease and flour cake pans #tooling
 Apply butter evenly, dust with flour, tap out excess.
 
-# Workbench — Mixing #workbench
+# Workbench #workbench
 style: section
 
 ## Goal — Mix dry ingredients #workbench
@@ -56,7 +56,7 @@ Beat well after each addition. Scrape down the bowl.
 2026-05-09: Alternately add dry ingredients and milk #workbench
 Start and end with dry. Mix until just combined — do not overmix.
 
-# Product — Baking #product
+# Product #product
 style: section
 
 2026-05-10: FIRST MILESTONE — Batter is ready, pans are prepared #product #milestone
@@ -70,7 +70,7 @@ Rotate pans halfway through. Test with a toothpick at 35 minutes.
 2026-05-10 10:00am: Cool cakes in pans for 10 minutes #product
 Then turn out onto wire racks. Cool completely before frosting.
 
-# Growth — Buttercream Frosting #growth
+# Growth #growth
 style: section
 
 ## Goal — Make the buttercream #growth
@@ -87,7 +87,7 @@ Beat on low until incorporated, then high for 30 seconds.
 2026-05-14: Divide frosting into portions for tinting #growth
 Reserve 1 cup for crumb coat. Tint remaining in pastel gradient.
 
-# Finance — Cost Accounting #finance
+# Finance #finance
 style: section
 
 2026-05-15: Calculate total ingredient cost #finance
@@ -99,7 +99,7 @@ Oven electricity $0.45, mixer electricity $0.08, parchment paper $0.15.
 2026-05-17: Cost per slice analysis #finance
 Total $31.82 ÷ 12 slices = $2.65 per slice. Comparable bakery slice: $6.50.
 
-# Personal — Decoration and Serving #personal
+# Personal #personal
 style: section
 
 2026-05-18: SECOND MILESTONE — Cake cooled, frosting ready #personal #milestone
