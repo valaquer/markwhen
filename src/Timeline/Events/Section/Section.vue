@@ -12,6 +12,7 @@ import { useCollapseStore } from "@/Timeline/collapseStore";
 import type { Eventy } from "@markwhen/parser";
 import type { Sourced } from "@/Markwhen/useLpc";
 import type { EventGroup } from "@markwhen/parser";
+import { isEvent, Event, toDateRange } from "@markwhen/parser";
 
 const timelineStore = useTimelineStore();
 const collapseStore = useCollapseStore();
@@ -60,14 +61,41 @@ const { color } = useEventColor(
   computed(() => props.eventy as Sourced<Eventy>)
 );
 
+const measureTextWidth = (text: string, fontSize: string): number => {
+  const ctx = document.createElement("canvas").getContext("2d");
+  if (!ctx) return 0;
+  ctx.font = `${fontSize} system-ui`;
+  return Math.ceil(ctx.measureText(text).width);
+};
+
 const fullWidth = computed(() => {
   if (!props.eventy || !sectionRange.value) {
     return 100;
   }
-  return scalelessDistanceBetweenDates(
+  const dateWidth = scalelessDistanceBetweenDates(
     sectionRange.value.fromDateTime,
     sectionRange.value.toDateTime
   );
+  if (groupStyle.value === "group" && props.eventy.children) {
+    let maxOverflow = 0;
+    for (const child of props.eventy.children) {
+      if (!isEvent(child)) continue;
+      const event = child as Sourced<Event>;
+      const eventRange = toDateRange(event.dateRangeIso);
+      if (!eventRange) continue;
+      const textPx = measureTextWidth(event.firstLine?.restTrimmed || "", "12px");
+      const barRight = scalelessDistanceBetweenDates(
+        timelineStore.baselineLeftmostDate,
+        eventRange.toDateTime
+      );
+      const textScale = textPx / timelineStore.pageScaleBy24;
+      const groupRight = left.value + dateWidth;
+      const contentEnd = barRight + textScale;
+      maxOverflow = Math.max(maxOverflow, contentEnd - groupRight);
+    }
+    return dateWidth + Math.max(0, maxOverflow);
+  }
+  return dateWidth;
 });
 const titleHtml = computed(() => toInnerHtml(props.eventy.title || ""));
 
