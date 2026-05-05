@@ -1,0 +1,123 @@
+---
+title: How to Bake a Cake
+description: A fictional timeline — swimlanes, goals, subgoals, and milestones
+timezone: America/New_York
+---
+
+#strategy: #2563EB
+#tooling: #F59E0B
+#workbench: #16A34A
+#product: #DC2626
+#growth: #8B5CF6
+#finance: #10B981
+#personal: #EC4899
+
+# Strategy — Recipe Planning #strategy
+style: section
+
+2026-05-01: Research cake styles and choose a recipe #strategy
+Classic vanilla layer cake with Swiss meringue buttercream. Serves 12.
+
+## Goal — Gather ingredients #strategy
+2026-05-02: Create detailed shopping list #strategy
+Flour, sugar, eggs, butter, baking powder, vanilla extract, milk, salt. Cross-reference against pantry.
+
+2026-05-03: Procure all ingredients from store #strategy
+Check expiration dates. Bring everything to room temperature.
+
+# Tooling — Equipment Setup #tooling
+style: section
+
+2026-05-04: Verify all baking equipment is available #tooling
+Stand mixer, measuring cups and spoons, rubber spatulas, 9-inch round cake pans, cooling racks, offset spatula.
+
+## Goal — Prepare the workspace #tooling
+2026-05-05: Preheat oven to 350°F #tooling
+Position rack in the center. Line cake pans with parchment rounds.
+
+2026-05-05: Grease and flour cake pans #tooling
+Apply butter evenly, dust with flour, tap out excess.
+
+# Workbench — Mixing #workbench
+style: section
+
+## Goal — Mix dry ingredients #workbench
+2026-05-06: Sift flour, baking powder, and salt together #workbench
+Whisk in a medium bowl until evenly combined. Set aside.
+
+## Goal — Cream butter and sugar #workbench
+2026-05-07: Beat butter on medium speed until smooth #workbench
+Gradually add sugar, beat for 3-4 minutes until light and fluffy.
+
+2026-05-08: Add eggs one at a time, then vanilla #workbench
+Beat well after each addition. Scrape down the bowl.
+
+## Goal — Combine wet and dry #workbench
+2026-05-09: Alternately add dry ingredients and milk #workbench
+Start and end with dry. Mix until just combined — do not overmix.
+
+# Product — Baking #product
+style: section
+
+2026-05-10: FIRST MILESTONE — Batter is ready, pans are prepared #product #milestone
+
+2026-05-10 9:00am: Divide batter evenly between prepared pans #product
+Use a kitchen scale for accuracy — 450g per pan.
+
+2026-05-10 9:15am - 2026-05-10 10:00am: Bake at 350°F #product
+Rotate pans halfway through. Test with a toothpick at 35 minutes.
+
+2026-05-10 10:00am: Cool cakes in pans for 10 minutes #product
+Then turn out onto wire racks. Cool completely before frosting.
+
+# Growth — Buttercream Frosting #growth
+style: section
+
+## Goal — Make the buttercream #growth
+2026-05-11: Whip butter until light and fluffy #growth
+Use room temperature butter. Beat on medium-high for 5 minutes.
+
+2026-05-12: Gradually add sifted powdered sugar #growth
+Add in batches. Scrape bowl frequently.
+
+2026-05-13: Add vanilla and cream until desired consistency #growth
+Beat on low until incorporated, then high for 30 seconds.
+
+## Goal — Color and portion #growth
+2026-05-14: Divide frosting into portions for tinting #growth
+Reserve 1 cup for crumb coat. Tint remaining in pastel gradient.
+
+# Finance — Cost Accounting #finance
+style: section
+
+2026-05-15: Calculate total ingredient cost #finance
+Flour $2.49, sugar $3.99, eggs $4.29, butter $5.49, vanilla $6.99, milk $2.89, powdered sugar $4.99.
+
+2026-05-16: Overhead and utility cost estimate #finance
+Oven electricity $0.45, mixer electricity $0.08, parchment paper $0.15.
+
+2026-05-17: Cost per slice analysis #finance
+Total $31.82 ÷ 12 slices = $2.65 per slice. Comparable bakery slice: $6.50.
+
+# Personal — Decoration and Serving #personal
+style: section
+
+2026-05-18: SECOND MILESTONE — Cake cooled, frosting ready #personal #milestone
+
+## Goal — Assemble the cake #personal
+2026-05-18: Level cake layers with a serrated knife #personal
+Remove domed tops to create flat, even layers.
+
+2026-05-19: Apply crumb coat and chill #personal
+Thin layer of frosting seals in crumbs. Refrigerate for 30 minutes.
+
+## Goal — Final decoration #personal
+2026-05-20: Apply final layer of frosting #personal
+Smooth with a bench scraper. Clean edges on top.
+
+2026-05-21: Pipe decorative border and add toppings #personal
+Fresh berries, edible flowers, and a drizzle of caramel.
+
+2026-05-22: THIRD MILESTONE — Cake complete! Slice and serve #personal #milestone
+Enjoy with coffee or tea. Share with friends and family.
+
