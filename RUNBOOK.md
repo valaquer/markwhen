@@ -57,6 +57,7 @@ QA verifies:
 - Blast radius is complete (nothing missed)
 - Plan does not conflict with known issues or prior failed attempts
 - Plan is implementable as written
+- **Build verification step included:** Plan must specify how the principal will verify their source changes survived the build pipeline (e.g. grep compiled dist/index.html for the specific change). Source edits that don't appear in the compiled output are not changes — they are noise. This is mandatory for every REQ that touches source code.
 
 If rejected: revise plan, resubmit. Do not proceed.
 
@@ -113,6 +114,7 @@ Boss tests in browser.
 - **Never bypass QA by working off-huddle.** Boss must not work directly with the principal without QA in the loop. "A few quick changes" is exactly when failure patterns strike. The QA gate is the protection; removing it removes the protection.
 - **Never delete the rendered output file.** The rendered HTML is an ephemeral build artifact — overwrite it in place on every render. Boss's browser points at it. Deleting it blanks the browser.
 - **Investigate before assuming.** When a feature appears to exist in source code, verify it works by checking what the parser actually produces — not by reading the code and guessing. Read the regex, check the parsed output, test with console.log. Source code is not proof of functionality.
+- **Verify changes survive the build.** After every build, grep the compiled output (dist/index.html) for your specific change — a unique string, constant, or pattern that proves your source edit made it into the bundle. Minifiers rename variables, so search for constants (numbers, strings) not variable names. If your change isn't in the compiled output, the build used cached modules. Clear the Vite cache (node_modules/.vite/) and rebuild. Two principals hit this same failure in one session (May 7 2026).
 
 ## Design Principles
 
@@ -143,7 +145,7 @@ Boss tests in browser.
 | 017 | Collapsed group label on LEFT side of bar | SectionHeader.vue line 99 — collapsed group positioning | Change from `marginLeft: calc(width + 0.75rem)` to `transform: translateX(calc(-100% - 16px))` so label appears left of bar with 16px gap. | SUCCESS | — | Gate 2 approved by Rio. |
 | 018 | Collapse all should skip top-level swimlanes | collapseStore.ts line 81 — add style check | Add `if (eventy.style === "section") continue;` guard in `collapseAll()` to skip sections and only collapse subgroups. | SUCCESS | — | Gate 2 approved by Rio. |
 | 019 | Replace text progress with checklist-based progress bars on Cernere events | `sample-data/honeybloom.mw` — update S1-S6 event descriptions with checklist items | For each Cernere event, replace "(Done)" text and descriptions with `- [x]`/`- [ ]` checklist items reflecting actual status. Remove demo events. Data-only. | SUCCESS | — | Gate 2 approved by Rio. |
-| 020 | Gantt bars should not spill into next date | `EventRow.vue` (dimensions computed, line 162), `EventRowSvg.vue` (width computed, line 48) | Subtract 1ms from `toDateTime` in bar width calculation so right edge stops just before midnight boundary instead of aligning exactly | IN PROGRESS | req-020-021-visual-fixes | Gate 1 approved by Rio. |
+| 020 | Gantt bars should not spill into next date | `EventRow.vue` (dimensions computed, line 162), `EventRowSvg.vue` (width computed, line 48) | Subtract 1ms from `toDateTime` in bar width calculation | FAIL | req-020-021-visual-fixes | Gate 2 failed — 1ms fix present in build but imperceptible. See FAILED ATTEMPTS. |
 
 ---
 
@@ -162,6 +164,7 @@ Boss tests in browser.
 |-----|---------|---------------|------------|
 | 001 | Open dist/index.html directly | Blank white screen, no errors | No state injected. App.vue v-if guard prevents Timeline mount. |
 | 001 | Inject __markwhen_initial_state | Expected: parsed-array crash | CLI state format incompatible with v1.4.5 useColors. |
+| 020 | Subtract 1ms from toDateTime in width calc | No visual change. 1ms = imperceptible sub-pixel adjustment at any zoom level. 1ms was too small to shift the bar edge away from the column boundary. | Fix approach was wrong in magnitude — the adjustment needs to be VISIBLY large enough to prevent spill, not a theoretical sub-pixel correction. |
 | 003 | isDark: true in useLpc.ts without format fix | Dark mode didn't render despite isDark=true in app state | Comma-separated RGB values in palette.ts generated invalid CSS: `rgb(39, 39, 42 / 1)`. Tailwind alpha syntax requires space-separated: `rgb(39 39 42 / 1)`. |
 | 006 | Now line date label in NowLine.vue | Label rendered but invisible — behind the TimeMarkersBack fixed header bar (`z-30`, `position: fixed`). Different CSS stacking context. | Label was in `#timeline` (`relative overflow-auto`), behind the `fixed` header. Diagnosed and moved to TimeMarkersBack.vue. |
 | 006 | Now line date label in TimeMarkersBack.vue | Label compiled and rendered in DOM but still not visible visually | Positioning or reactivity issue — `nowLabelPos = nowLineLeft - viewport.left` may evaluate to 0 or NaN on first render due to `viewport.width = 0` before user interaction. |

@@ -45,7 +45,9 @@ const expandedRecurrence = computed(() =>
 );
 
 const width = computed(
-  () => dist(range.value.fromDateTime, range.value.toDateTime) * props.scale
+  () =>
+    Math.max(10, dist(range.value.fromDateTime, range.value.toDateTime) *
+    props.scale - 10)
 );
 
 const bottom = computed(

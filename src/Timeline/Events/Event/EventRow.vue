@@ -160,7 +160,7 @@ const dimensions = computed(() => {
     range.value.fromDateTime,
     range.value.toDateTime
   );
-  const scaledWidth = Math.max(10, width);
+  const scaledWidth = Math.max(10, width - 10);
 
   return {
     left,

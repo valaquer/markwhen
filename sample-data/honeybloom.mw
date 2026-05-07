@@ -18,38 +18,63 @@ style: section
 # Tooling #tooling
 style: section
 
+## Markwhen Fork
+
+2026-05-04/2026-05-05: Markwhen Fork — Build + Operator Setup #tooling
+- [x] Fork upstream, configure, deploy (REQ-001–008)
+- [x] RUNBOOK hardened (12 rules from live failures)
+- [x] Cernere timeline plotted (REQ-009–019)
+- [x] Guru/Daksh masterclass (observer training)
+- [x] Operator skill written, Zara/Omar onboarded
+
+2026-05-07: OPS-157 Retire Selena — full infrastructure teardown #tooling
+- [x] ORG.md updated (33 to 32), org chart PNG updated
+- [x] janus-config, kitty launch, skills, huddle infra cleaned
+
+2026-05-07: OPS-158 Provision Sandbox — raw LLM testing instance #tooling
+- [x] OpenCode fork + OpenRouter, gray tab, DeepSeek V3 default
+- [x] janus-config, kitty launch, color-folders entries added
+
+2026-05-07: OPS-159 Build Google Drive MCP server for Felix #tooling
+- [x] 8 tools, multi-account (gmail + oovar)
+- [x] Deployed to Felix
+
+2026-05-07: OPS-160 Add hook support to OpenCode fork #tooling
+- [x] 4 runtime hooks (UserPromptSubmit, SessionStart, PreToolUse, PostToolUse)
+- [x] Binary deployed, inject-timestamp configured for Klara/Natalie/sandbox
+
 # Workbench #workbench
 style: section
 
 ## Cernere
 
-2026-04-28: S1 Model Best Practices Research #workbench
+2026-04-28: S1 Reuse existing model best practices intel #workbench
 - [x] Research model best practices across OpenRouter providers
 - [x] Document findings and recommendations
 - [x] Deploy as skills #148 and #149
 
-2026-04-28/2026-05-07: S2 Prompt Hardening #workbench
+2026-04-29/2026-05-01: S2 Prompt Hardening #workbench
 - [x] Director books — 14 modular files (Boss/Klara)
 - [x] Cutter books — 7 modules (Quinn)
-- [ ] Actress books — 5 modules (Klara/Boss)
-- [ ] Vera QA pass on completed books
+- [x] Actress books — 5 modules (Klara/Boss)
+- [x] Vera QA pass on completed books
 
-2026-05-05/2026-05-07: S3 Workbench Presentation #workbench
-- [ ] Build Cernere workbench UI
-- [ ] Integrate with tournament engine
-- [ ] Boss visual review and feedback
+2026-05-05/2026-05-06: S3 Workbench Presentation #workbench
+- [x] Cernere workbench UI hardened (5 conditions, all bubble types)
+- [x] Boss visual review — 11 UI changes approved
+- [x] En dash product-level rule established
 
-2026-05-07/2026-05-08: S4 Tournament Runbook #workbench
+2026-05-06/2026-05-07: S4 Tournament Runbook #workbench
 - [x] Initial runbook for Vast.ai infrastructure
 - [ ] Refresh for OpenRouter pivot
 - [ ] Confirm all 4 models live on OpenRouter
 
-2026-05-08/2026-05-10: S5 Tournament Execution — 32 Runs #workbench
-- [ ] Set up 4 conditions (C1-C4) on OpenRouter
+2026-05-07/2026-05-09: S5 Tournament Execution — 40 Runs #workbench
+- [ ] Set up 5 conditions (C1-C5) on OpenRouter
 - [ ] Execute 8 test cases per condition
 - [ ] Collect raw outputs for scoring
 
-2026-05-10/2026-05-11: S6 Tournament Scoring #workbench
+2026-05-09: S6 Tournament Scoring #workbench
 - [ ] Update Eva's rubric with Director-quality dimension
 - [ ] Score 32 runs across all conditions
 - [ ] Produce final model selection analysis
@@ -62,6 +87,33 @@ style: section
 
 # Finance #finance
 style: section
+
+## Schild — Startup Lawyer
+
+2026-04-29: Research — identify candidates (Pike) #finance
+- [x] Pike landscape research delivered (2 strong, 2 rejected)
+
+2026-05-06: Positioning — outreach framing (huddle) #finance
+- [x] Gunnar strategic framing approved
+- [x] Felix drafted German Erstanfrage emails
+
+2026-05-06: Outreach — sent to both candidates #finance
+- [x] Email Marian Härtel / ITMediaLaw
+- [x] Email Schlun & Elseven
+
+2026-05-06: Manage responses + schedule first meeting #finance
+- [x] Handle follow-up questions
+- [x] Schedule video/in-person call
+
+2026-05-08: Lawyer 1 — Marian Härtel / ITMediaLaw #finance
+- [ ] First meeting
+
+2026-05-14: Lawyer 2 — Schlun & Elseven #finance
+- [ ] First meeting
+
+2026-05-08/2026-05-14: Decision gate #finance
+- [ ] Boss evaluates fit
+- [ ] Engage or loop back to next candidate
 
 # Personal #personal
 style: section
