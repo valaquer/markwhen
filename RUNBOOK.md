@@ -143,6 +143,7 @@ Boss tests in browser.
 | 017 | Collapsed group label on LEFT side of bar | SectionHeader.vue line 99 — collapsed group positioning | Change from `marginLeft: calc(width + 0.75rem)` to `transform: translateX(calc(-100% - 16px))` so label appears left of bar with 16px gap. | SUCCESS | — | Gate 2 approved by Rio. |
 | 018 | Collapse all should skip top-level swimlanes | collapseStore.ts line 81 — add style check | Add `if (eventy.style === "section") continue;` guard in `collapseAll()` to skip sections and only collapse subgroups. | SUCCESS | — | Gate 2 approved by Rio. |
 | 019 | Replace text progress with checklist-based progress bars on Cernere events | `sample-data/honeybloom.mw` — update S1-S6 event descriptions with checklist items | For each Cernere event, replace "(Done)" text and descriptions with `- [x]`/`- [ ]` checklist items reflecting actual status. Remove demo events. Data-only. | SUCCESS | — | Gate 2 approved by Rio. |
+| 020 | Gantt bars should not spill into next date | `EventRow.vue` (dimensions computed, line 162), `EventRowSvg.vue` (width computed, line 48) | Subtract 1ms from `toDateTime` in bar width calculation so right edge stops just before midnight boundary instead of aligning exactly | IN PROGRESS | req-020-021-visual-fixes | Gate 1 approved by Rio. |
 
 ---
 
