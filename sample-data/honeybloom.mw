@@ -18,7 +18,7 @@ style: section
 # Tooling #tooling
 style: section
 
-## Markwhen Fork
+## Markwhen Fork #tooling
 
 2026-05-04/2026-05-05: Markwhen Fork — Build + Operator Setup #tooling
 - [x] Fork upstream, configure, deploy (REQ-001–008)
@@ -46,7 +46,7 @@ style: section
 # Workbench #workbench
 style: section
 
-## Cernere
+## Cernere #workbench
 
 2026-04-28: S1 Reuse existing model best practices intel #workbench
 - [x] Research model best practices across OpenRouter providers
@@ -88,7 +88,7 @@ style: section
 # Finance #finance
 style: section
 
-## Schild — Startup Lawyer
+## Schild — Startup Lawyer #finance
 
 2026-04-29: Research — identify candidates (Pike) #finance
 - [x] Pike landscape research delivered (2 strong, 2 rejected)
@@ -115,6 +115,53 @@ style: section
 - [ ] Boss evaluates fit
 - [ ] Engage or loop back to next candidate
 
+## Org Admin #finance
+
+2026-05-07: Oovar.ai Drive cleanup — empty trash, verify quota #finance
+- [x] Disconnect Drive sync from local machine
+- [x] Empty trash via Drive MCP (37.4 GB freed)
+- [x] Verify storage under 30 GB quota
+
+2026-05-15/2026-05-31: provoque.ai full website #finance
+- [ ] Full build (Guru/Daksh)
+
+2026-05-15/2026-06-15: 1Password CLI for Felix #finance
+- [ ] Rio Gate 1 approval
+- [ ] Deployment
+
+2026-06-01/2026-07-31: Finance aggregator — automated bank ingestion #finance
+- [ ] Rio commission
+- [ ] Deutsche Bank, Barclays, Wise via FinTS/HBCI
+
 # Personal #personal
 style: section
+
+## Medical & Insurance #personal
+
+2026-05-07/2026-09-23: X4 Zahnersatz — Liana dental crowns #personal
+- [ ] Liana sends X4 + Kostenvoranschlag to Barmenia (pre-approval)
+- [ ] NaturDent treatment (must complete before Sep 23)
+- [ ] Submit Erstattung form + invoices to TK after treatment
+
+2026-05-15/2026-06-30: LTA claim EUR 112.06 #personal
+- [ ] Liana's doctor provides LTA doctor form
+- [ ] Portal refiling
+
+2026-05-07/2026-05-31: c-kit/Ki-67 decision for Paris #personal
+- [ ] Liana discusses with vet
+- [ ] Decide on additional testing
+
+## Household & Auto #personal
+
+2026-05-09: Tire shop appointment — reifencom Weissensee #personal
+- [ ] 9:00 AM appointment
+
+2026-06-01/2026-07-31: Find cheaper car service shop #personal
+- [ ] Research alternatives to CSB Schimmel
+- [ ] Before TUV/Dekra HU prep (Aug booking)
+
+2026-10-15/2026-10-31: Energy provider Kündigung — Fuxx #personal
+- [ ] Send Kündigung (contract locked until ~Dec 2026)
+- [ ] Research replacement provider
+
 

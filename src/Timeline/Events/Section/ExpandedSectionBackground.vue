@@ -42,7 +42,7 @@ const styleObject = computed(() => {
       obj.backgroundColor = `rgba(${color.value}, 0.05)`;
     }
     const border = `1px solid rgba(${color.value}, ${
-      isDetailEvent.value ? "0.95" : props.hovering ? "0.75" : "0.12"
+      isDetailEvent.value ? "0.95" : props.hovering ? "0.75" : "0.6"
     })`;
     obj.borderTop = border;
     obj.borderBottom = border;
