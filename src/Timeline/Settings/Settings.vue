@@ -50,10 +50,8 @@ const copyEmbedLink = async () =>
 
 const goToNow = () => timelineStore.goToNow();
 
-const facadeOpen = ref(false);
 const openFacade = () => {
   window.open('http://localhost:51730', '_blank');
-  facadeOpen.value = true;
 };
 </script>
 
@@ -70,11 +68,10 @@ const openFacade = () => {
           <div class="flex flex-row pointer-events-auto shrink-0">
             <button
               @click="openFacade"
-              class="flex items-center gap-1 rounded px-2 py-0.5 transition"
-              :class="facadeOpen ? 'text-th-text-muted' : 'hover:bg-th-hover-bg'"
+              class="flex items-center gap-1 rounded px-2 py-0.5 transition hover:bg-th-hover-bg"
               style="font-size: 10px;"
             >
-              {{ facadeOpen ? 'Facade is open' : 'Fire up Facade' }}
+              Fire up Facade
             </button>
           </div>
           <div
