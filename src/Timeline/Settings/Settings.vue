@@ -67,7 +67,7 @@ const openFacade = () => {
         <div class="settings-bar flex flex-row items-center gap-4 px-4 pointer-events-auto">
           <button @click="openFacade" class="settings-btn" style="margin-left: -2px;">Fire up Facade</button>
           <button @click="goToNow" class="settings-btn">Now</button>
-          <AutoCenter></AutoCenter>
+          <button @click="timelineStore.autoCenter()" class="settings-btn">Center</button>
           <TimelineScale></TimelineScale>
           <ToggleDateTimeDisplay></ToggleDateTimeDisplay>
           <ToggleShowProgress></ToggleShowProgress>

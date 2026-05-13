@@ -177,12 +177,9 @@ const scrollToDateRangeImmediate = (
   if (!dateRange) {
     return;
   }
-  const { width } = getViewport();
-  // We still want to be zoomed out a bit
-  const scale = scaleToGetDistance(width, dateRange) / (buffered ? 3 : 1);
-  timelineStore.setPageScale(scale);
+  // Scroll to center of date range without changing zoom
+  scrollToDate(dateMidpoint(dateRange), true, true);
   nextTick(() => {
-    scrollToDate(dateMidpoint(dateRange), true, true);
     setViewportDateInterval();
   });
 };
