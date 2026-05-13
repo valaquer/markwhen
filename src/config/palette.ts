@@ -43,7 +43,7 @@ export const theme = {
     surface: "11 13 16",
     surfaceAlt: "18 20 24",
     surfaceDark: "8 9 12",
-    text: "255 255 255",
+    text: "200 200 200",
     textMuted: "161 161 170",
     textHover: "212 212 216",
     border: "82 82 91",
@@ -59,13 +59,13 @@ export const theme = {
     nowLine: "161 161 170",
     refLine: "248 113 113",
     hoverLine: "161 161 170",
-    sectionBg: "75 85 99",
+    sectionBg: "0 0 255",        // BLUE — section header bg
     sectionBgDeep: "75 85 99",
     sectionBorder: "156 163 175",
     eventDetailBg: "24 24 27",
-    barEmpty: "161 161 170",
-    barBorder: "212 212 216",
-    progressBar: "156 163 175",
+    barEmpty: "255 0 255",       // MAGENTA — bar empty (already set in EventBar)
+    barBorder: "74 104 88",       // #2 Forest light
+    progressBar: "74 104 88",   // #2 Forest light
     svgFill: "147 151 154",
     svgText: "255 255 255",
     svgMarkerStroke: "200 200 200",

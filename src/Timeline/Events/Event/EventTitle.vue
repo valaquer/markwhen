@@ -19,7 +19,7 @@ const timelineStore = useTimelineStore();
 </script>
 
 <template>
-  <div class="eventTitle whitespace-nowrap py-1 flex flex-row" style="font-size: 12px;">
+  <div class="eventTitle whitespace-nowrap py-1 flex flex-row" style="font-size: 12px; color: #c8c8c8; font-family: system-ui;">
     <div
       class="supplementalIndicators flex flex-row text-th-text-muted gap-1 items-center justify-center pl-2"
     >

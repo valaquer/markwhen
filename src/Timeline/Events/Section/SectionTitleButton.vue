@@ -19,12 +19,9 @@ const emit = defineEmits<{
 }>();
 
 const styleObject = computed(() => {
-  if (props.color) {
-    return {
-      backgroundColor: `rgba(${props.color}, 0.5)`,
-    };
-  }
-  return {};
+  return {
+    backgroundColor: `#5a3e2e`,
+  };
 });
 
 const click = (e: MouseEvent) => emit("click", e);
@@ -36,7 +33,7 @@ const click = (e: MouseEvent) => emit("click", e);
     class="flex flex-row items-center bg-opacity-50"
     :class="{
       'bg-th-section-bg': !color,
-      'rounded-full px-2 py-px': groupStyle === 'group',
+      'rounded-[3px] px-2 py-px': groupStyle === 'group',
       'px-1': groupStyle !== 'group',
     }"
     :style="styleObject"
@@ -64,6 +61,6 @@ const click = (e: MouseEvent) => emit("click", e);
 
 <style scoped>
 .eventTitle {
-  font-family: system-ui;
+  font-family: Inter, system-ui, sans-serif;
 }
 </style>

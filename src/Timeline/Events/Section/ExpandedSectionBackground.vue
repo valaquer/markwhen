@@ -47,9 +47,7 @@ const styleObject = computed(() => {
         obj.backgroundColor = `rgba(${color.value}, 0.05)`;
       }
     }
-    const border = `1px solid rgba(${color.value}, ${
-      isDetailEvent.value ? "0.95" : props.hovering ? "0.75" : "0.6"
-    })`;
+    const border = `1px solid #7a5e4a`;
     obj.borderTop = isGroupStyle.value ? border : `1px solid #191b20`;
     obj.borderBottom = isGroupStyle.value ? border : `1px solid #191b20`;
     if (isGroupStyle.value) {
@@ -79,7 +77,7 @@ const styleObject = computed(() => {
       'border-th-section-border':
         !color && (hovering || isDetailEvent),
       'ml-0 w-full': !isGroupStyle,
-      'rounded-[14px]': isGroupStyle,
+      'rounded-[3px]': isGroupStyle,
     }"
     :style="styleObject"
   ></div>

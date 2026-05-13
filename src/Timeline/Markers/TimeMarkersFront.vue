@@ -98,7 +98,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
         }"
       >
         <h6
-          :class="{ 'font-bold': isHovering(timeMarker) }"
+          :class="{}"
           class="timeMarkerTitle whitespace-nowrap text-th-text pl-1"
           :style="{
             opacity: isHovering(timeMarker) ? 1 : opacity(timeMarker),

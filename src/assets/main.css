@@ -9,7 +9,8 @@
 
 html, body {
   height: 100%;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   mix-blend-mode: multiply;

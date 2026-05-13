@@ -210,7 +210,7 @@ const hoveredMarkerLeft = computed(() => {
     <div
       class="sticky top-0 -m-px"
       :class="{
-        'font-bold z-50 border-th-border-strong':
+        'z-50 border-th-border-strong':
           isHovering(timeMarker),
         'z-40 border-th-border': !isHovering(timeMarker),
       }"

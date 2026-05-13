@@ -166,7 +166,7 @@ const goToNow = () => timelineStore.goToNow();
               v-if="markwhenStore.showEditButton"
               :href="markwhenStore.editorLink"
               target="_blank"
-              class="h-6 flex flex-row items-center rounded hover:bg-th-hover-bg transition px-1 text-sm lg:text-base font-bold relative"
+              class="h-6 flex flex-row items-center rounded hover:bg-th-hover-bg transition px-1 text-sm lg:text-base relative"
               ><svg
                 class="h-4 w-4 md:mr-1"
                 focusable="false"

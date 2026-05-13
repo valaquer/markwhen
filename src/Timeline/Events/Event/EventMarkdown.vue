@@ -46,7 +46,7 @@ const onChange = (index: number, checked: boolean) => {
 </script>
 
 <template>
-  <div style="font-family: system-ui">
+  <div style="font-family: Inter, system-ui, sans-serif">
     <template v-for="(item, index) in supplemental">
       <div
         v-if="item.type === 'checkbox'"
