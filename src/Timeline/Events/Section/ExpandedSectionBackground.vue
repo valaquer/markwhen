@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { GROUP_PADDING } from "@/config/palette";
 import { computed } from "@vue/reactivity";
 import { useTimelineStore } from "../../timelineStore";
 import { useEventColor } from "../composables/useEventColor";
@@ -35,6 +36,9 @@ const styleObject = computed(() => {
     height: `${props.height}px`,
     transition: `height 200ms cubic-bezier(0.4, 0, 0.2, 1)`,
   } as any;
+  if (isGroupStyle.value) {
+    obj.top = `-${GROUP_PADDING}px`;
+  }
   if (color.value) {
     if (props.hovering || isDetailEvent.value) {
       obj.backgroundColor = `rgba(${color.value}, 0.1`;
