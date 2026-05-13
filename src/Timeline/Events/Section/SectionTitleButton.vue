@@ -19,6 +19,9 @@ const emit = defineEmits<{
 }>();
 
 const styleObject = computed(() => {
+  if (props.groupStyle === 'section') {
+    return {};
+  }
   return {
     backgroundColor: `#5a3e2e`,
   };
@@ -32,7 +35,7 @@ const click = (e: MouseEvent) => emit("click", e);
     ref="button"
     class="flex flex-row items-center bg-opacity-50"
     :class="{
-      'bg-th-section-bg': !color,
+      'bg-th-section-bg': !color && groupStyle !== 'section',
       'rounded-[3px] px-2 py-px': groupStyle === 'group',
       'px-1': groupStyle !== 'group',
     }"
@@ -44,13 +47,16 @@ const click = (e: MouseEvent) => emit("click", e);
     <div class="flex flex-row flex-grow items-center justify-center">
       <span
         class="eventTitle whitespace-nowrap"
+        :class="{ 'gradient-text': groupStyle === 'section' }"
         v-if="titleHtml"
         v-html="titleHtml"
-        style="font-size: 12px;"
+        :style="groupStyle === 'section' ? 'font-size: 13px; font-weight: 500;' : 'font-size: 12px;'"
       >
       </span>
       <span
-        class="eventTitle whitespace-nowrap ml-1" style="font-size: 10px;"
+        class="eventTitle whitespace-nowrap ml-1"
+        :class="{ 'gradient-text': groupStyle === 'section' }"
+        :style="groupStyle === 'section' ? 'font-size: 11px; font-weight: 500;' : 'font-size: 10px;'"
         v-if="!expanded"
         >({{ numChildren }})</span
       >
@@ -62,5 +68,11 @@ const click = (e: MouseEvent) => emit("click", e);
 <style scoped>
 .eventTitle {
   font-family: Inter, system-ui, sans-serif;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #5c9cf5, #9d7cd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 </style>
