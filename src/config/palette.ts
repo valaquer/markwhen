@@ -81,7 +81,7 @@ export const rgb = (v: string) => v.replace(/ /g, ", ");
 // Tag event colors — used by useColors.ts for coloring events by tag
 // These stay comma-separated (only used in inline rgba(), never in Tailwind tokens)
 // Layout constants — single source of truth for spacing and sizing.
-export const ROW_HEIGHT = 30;
+export const ROW_HEIGHT = 20;
 export const HEADER_OFFSET = 100;
 
 export const TAG_COLORS = [
