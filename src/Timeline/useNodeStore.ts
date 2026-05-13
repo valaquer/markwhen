@@ -68,9 +68,15 @@ export const useNodeStore = defineStore("nodes", () => {
 
     const arr = node.children;
     const isSwimlane = (node as any).style === "section";
+    let groupGaps = 0;
+    if (isSwimlane) {
+      for (let i = 1; i < arr.length; i++) {
+        if (!isEvent(arr[i])) groupGaps++;
+      }
+    }
     const children = arr.reduce((prev, curr, i) => {
       return prev + 1 + _numChildren(curr, [...path, i], childrenMap);
-    }, isSwimlane ? 2 : 0);
+    }, isSwimlane ? 2 + groupGaps : 0);
     return cache(children);
   };
 
@@ -263,13 +269,22 @@ export const useNodeStore = defineStore("nodes", () => {
     ) {
       pred += childrenMap.get(prevPath) || 0;
     }
-    // Add top padding for first child of a swimlane
+    // Add padding within swimlanes
     const parentPath = path.slice(0, -1);
-    if (path[path.length - 1] === 0 && parentPath.length > 0) {
+    if (parentPath.length > 0) {
       const parentJoined = parentPath.join(",");
       const parentNode = nodeArray.value.find(n => n.path.join(",") === parentJoined);
       if (parentNode && !isEvent(parentNode.eventy) && (parentNode.eventy as any).style === "section") {
-        pred += 1;
+        if (path[path.length - 1] === 0) {
+          // Top padding: first child of swimlane
+          pred += 1;
+        } else {
+          // Gap between groups: previous sibling is a group
+          const prevSibNode = nodeArray.value.find(n => n.path.join(",") === prevPath);
+          if (prevSibNode && !isEvent(prevSibNode.eventy)) {
+            pred += 1;
+          }
+        }
       }
     }
     return cache(pred);
