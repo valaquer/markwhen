@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ROW_HEIGHT } from "@/config/palette";
 import { useCollapseStore } from "@/Timeline/collapseStore";
 import { computed, ref, watch } from "vue";
 import { useTimelineStore } from "../../timelineStore";
@@ -54,7 +55,7 @@ const styleObject = computed(() => {
     order: -9999,
     top: `${3 + props.path.slice(1).length * 1.2}rem`,
     zIndex: timelineStore.mode === "gantt" ? 3 : 0,
-    height: "30px",
+    height: `${ROW_HEIGHT}px`,
   } as any;
   if (props.groupStyle === "group") {
     obj.width = `${width.value}px`;
@@ -113,8 +114,8 @@ const childStyleObj = computed(() => {
   >
     <div class="sticky flex items-center left-2" :style="childStyleObj">
       <div
-        class="h-[30px] flex flex-row items-center"
-        :style="titleStyle"
+        class="flex flex-row items-center"
+        :style="{ height: `${ROW_HEIGHT}px`, ...titleStyle }"
         :class="titleClass"
       >
         <SectionTitleButton

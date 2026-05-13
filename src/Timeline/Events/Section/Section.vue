@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ROW_HEIGHT, HEADER_OFFSET } from "@/config/palette";
 import { computed, ref, watch } from "vue";
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import { useEventColor } from "../composables/useEventColor";
@@ -126,9 +127,9 @@ const width = computed(
   () => `${timelineStore.pageScaleBy24 * fullWidth.value}px`
 );
 
-const top = computed(() => 100 + props.numAbove * 30);
+const top = computed(() => HEADER_OFFSET + props.numAbove * ROW_HEIGHT);
 
-const height = computed(() => 30 + props.numChildren! * 30);
+const height = computed(() => ROW_HEIGHT + props.numChildren! * ROW_HEIGHT);
 
 const styleObject = computed(() => ({
   top: `${top.value}px`,

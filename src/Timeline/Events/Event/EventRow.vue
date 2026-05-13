@@ -10,6 +10,7 @@ import {
   type Range,
   type Recurrence,
 } from "@markwhen/parser";
+import { ROW_HEIGHT } from "@/config/palette";
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import EventBar from "@/Timeline/Events/Event/EventBar.vue";
 import { useResize } from "@/Timeline/Events/Event/Edit/composables/useResize";
@@ -197,7 +198,7 @@ const isGantt = computed(() => timelineStore.mode === "gantt");
 const styleObj = computed(() => {
   let obj = {
     top: `${top.value}px`,
-    height: `30px`,
+    height: `${ROW_HEIGHT}px`,
     transition: `top 200ms cubic-bezier(0.4, 0, 0.2, 1)`,
   } as any;
   obj.left = isGantt.value ? "0px" : `${left.value}px`;
@@ -345,8 +346,8 @@ const ganttTitleStyle = computed(() => {
     </div>
   </div>
   <div
-    class="absolute left-0 h-[30px] pointer-events-none"
-    :style="{ top: `${top}px`, right: `-350%` }"
+    class="absolute left-0 pointer-events-none"
+    :style="{ height: `${ROW_HEIGHT}px`, top: `${top}px`, right: `-350%` }"
     v-if="timelineStore.mode === 'gantt' && !isCollapsed"
     @mouseenter.passive="elementHover = true"
     @mouseleave.passive="elementHover = false"

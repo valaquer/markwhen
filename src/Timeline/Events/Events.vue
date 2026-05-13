@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ROW_HEIGHT } from "@/config/palette";
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import { computed } from "vue";
 import { useNodeStore } from "../useNodeStore";
@@ -15,7 +16,7 @@ const nodeStore = useNodeStore();
 const height = computed(() => {
   const nodeArray = nodeStore.nodeArray;
   if (nodeArray.length) {
-    return `${nodeArray.length * 30 + 500}px`;
+    return `${nodeArray.length * ROW_HEIGHT + 500}px`;
   } else {
     return "100%";
   }

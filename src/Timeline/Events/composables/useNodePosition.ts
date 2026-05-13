@@ -1,3 +1,4 @@
+import { ROW_HEIGHT, HEADER_OFFSET } from "@/config/palette";
 import { useCollapseStore } from "@/Timeline/collapseStore";
 import type { Path } from "@markwhen/parser";
 import type { MaybeRef } from "@vueuse/core";
@@ -22,7 +23,7 @@ export const useNodePosition = (path: MaybeRef<Path>) => {
         : unref(path).join(",")
     )!;
 
-    return 100 + numAbove * 30;
+    return HEADER_OFFSET + numAbove * ROW_HEIGHT;
   });
 
   return { top, isCollapsed };

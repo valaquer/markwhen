@@ -1,3 +1,4 @@
+import { ROW_HEIGHT, HEADER_OFFSET } from "@/config/palette";
 import { recurrenceLimit } from "@/Timeline/timelineStore";
 import { ranges } from "@/utilities/ranges";
 import { isEvent, iter, toArray } from "@markwhen/parser";
@@ -127,8 +128,8 @@ export const useNodeStore = defineStore("nodes", () => {
         if (path.length > 0) {
           const numAbove = predecessorMap.value.get(joinedPath) || 0;
           const children = childrenMap.value.get(joinedPath) || 0;
-          const top = 100 + numAbove * 30;
-          const height = 30 + children * 30;
+          const top = HEADER_OFFSET + numAbove * ROW_HEIGHT;
+          const height = ROW_HEIGHT + children * ROW_HEIGHT;
           const vp = timelineStore.pageSettings.viewport;
 
           const bottomOfSection = top + height;
@@ -159,7 +160,7 @@ export const useNodeStore = defineStore("nodes", () => {
           visibleEvents.push(pAndN);
         } else {
           const numAbove = predecessorMap.value.get(joinedPath) || 0;
-          const top = 100 + numAbove * 30;
+          const top = HEADER_OFFSET + numAbove * ROW_HEIGHT;
           const vp = timelineStore.pageSettings.viewport;
           if (top > vp.top - 100 && top < vp.top + vp.height + 100) {
             if (timelineStore.mode === "gantt") {
@@ -284,7 +285,7 @@ export const useNodeStore = defineStore("nodes", () => {
 
   const viewHeight = computed(() => {
     if (nodeArray.value.length) {
-      return `${nodeArray.value.length * 30 + 500}px`;
+      return `${nodeArray.value.length * ROW_HEIGHT + 500}px`;
     } else {
       return "100%";
     }
