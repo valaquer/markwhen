@@ -40,16 +40,18 @@ const styleObject = computed(() => {
     obj.top = `-${GROUP_PADDING}px`;
   }
   if (color.value) {
-    if (props.hovering || isDetailEvent.value) {
-      obj.backgroundColor = `rgba(${color.value}, 0.1`;
-    } else if (!isDeep.value) {
-      obj.backgroundColor = `rgba(${color.value}, 0.05)`;
+    if (isGroupStyle.value) {
+      if (props.hovering || isDetailEvent.value) {
+        obj.backgroundColor = `rgba(${color.value}, 0.1`;
+      } else if (!isDeep.value) {
+        obj.backgroundColor = `rgba(${color.value}, 0.05)`;
+      }
     }
     const border = `1px solid rgba(${color.value}, ${
       isDetailEvent.value ? "0.95" : props.hovering ? "0.75" : "0.6"
     })`;
-    obj.borderTop = border;
-    obj.borderBottom = border;
+    obj.borderTop = isGroupStyle.value ? border : `1px solid #191b20`;
+    obj.borderBottom = isGroupStyle.value ? border : `1px solid #191b20`;
     if (isGroupStyle.value) {
       obj.borderLeft = border;
       obj.borderRight = border;
