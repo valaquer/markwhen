@@ -43,6 +43,9 @@ style: section
 - [x] 4 runtime hooks (UserPromptSubmit, SessionStart, PreToolUse, PostToolUse)
 - [x] Binary deployed, inject-timestamp configured for Klara/Natalie/sandbox
 
+2026-05-11: Espanso text expander — clipboard-paste mode for reliable Kitty snippet expansion #tooling
+- [x] Installed and configured
+
 # Workbench #workbench
 style: section
 
@@ -82,15 +85,28 @@ style: section
 # Product #product
 style: section
 
+# Bronx #workbench
+style: section
+
+## HuggingFace Chat UI Fork #workbench
+
+2026-05-09: Story 1 — Strip HuggingFace overhead #workbench
+- [x] Remove auth, MCP, router, voice, file uploads, rate limiting, metrics
+- [x] App starts clean on localhost:5174
+
+2026-05-09: Story 2 — Full Pipeline wiring #workbench
+- [x] Wire User LLM → Director → Actress → Cutter chain with SSE streaming
+- [x] Boss experiences latency on production architecture
+
 # Growth #growth
 style: section
 
 # Finance #finance
 style: section
 
-## Schild — Startup Lawyer #finance
+## Schild #finance
 
-2026-04-29: Research — identify candidates (Pike) #finance
+2026-04-29: Research — identify lawyer candidates (Pike) #finance
 - [x] Pike landscape research delivered (2 strong, 2 rejected)
 
 2026-05-06: Positioning — outreach framing (huddle) #finance
@@ -106,14 +122,26 @@ style: section
 - [x] Schedule video/in-person call
 
 2026-05-08: Lawyer 1 — Marian Härtel / ITMediaLaw #finance
-- [ ] First meeting
+- [x] First meeting (vibe check done, decision pending after S&E)
 
 2026-05-14: Lawyer 2 — Schlun & Elseven #finance
 - [ ] First meeting
 
-2026-05-08/2026-05-14: Decision gate #finance
-- [ ] Boss evaluates fit
+2026-05-15/2026-05-16: Decision gate #finance
+- [ ] Boss evaluates fit after both meetings
 - [ ] Engage or loop back to next candidate
+
+2026-05-08/2026-05-12: Insurance research — gewerbliche Rechtsschutzversicherung (Isa) #finance
+- [ ] Research options for Oovar UG (Berlin, NSFW AI, solo founder)
+- [ ] Deliver comparison brief
+
+2026-05-12/2026-05-14: Insurance comparison + selection (Felix + Boss) #finance
+- [ ] Compare options on coverage, cost, waiting period
+- [ ] Pick provider
+
+2026-05-14/2026-05-16: Insurance purchase #finance
+- [ ] Submit application
+- [ ] Confirm policy start (3-month waiting period begins)
 
 ## Org Admin #finance
 
@@ -153,8 +181,8 @@ style: section
 
 ## Household & Auto #personal
 
-2026-05-09: Tire shop appointment — reifencom Weissensee #personal
-- [ ] 9:00 AM appointment
+2026-05-16: Tire shop appointment — reifencom Weissensee #personal
+- [ ] 10:40 AM appointment
 
 2026-06-01/2026-07-31: Find cheaper car service shop #personal
 - [ ] Research alternatives to CSB Schimmel
