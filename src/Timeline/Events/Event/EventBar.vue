@@ -23,10 +23,10 @@ const recurrenceBarStyleObj = (left: number) => {
   return {
     left: `${left}px`,
     width: `${props.width}px`,
-    backgroundColor: color.value ? `rgba(${color.value}, 0.3)` : "",
+    backgroundColor: `magenta`,
     border: color.value ? `1px solid rgba(${color.value}, 0.3)` : "",
     height: isGantt ? `15px` : `10px`,
-    borderRadius: isGantt ? `0.125rem` : `5px`,
+    borderRadius: isGantt ? `0.125rem` : `2px`,
     flexShrink: 0,
   };
 };
@@ -40,8 +40,9 @@ const recurrencePercentBarStyleObj = (left: number) => {
     // maxWidth: `100%`,
     ...(color.value ? { backgroundColor: `rgba(${color.value}, 0.8)` } : {}),
   } as any;
+  obj.backgroundColor = `cyan`;
   obj.width = `${(props.percent * props.width) / 100}px`;
-  obj.borderRadius = isGantt ? "0.125rem" : `5px`;
+  obj.borderRadius = isGantt ? "0.125rem" : `2px`;
   obj.left = `${left}px`;
   return obj;
 };
