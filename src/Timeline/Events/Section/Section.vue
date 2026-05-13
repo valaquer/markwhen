@@ -84,13 +84,18 @@ const fullWidth = computed(() => {
       const event = child as Sourced<Event>;
       const eventRange = toDateRange(event.dateRangeIso);
       if (!eventRange) continue;
-      const fullText = ((event.firstLine?.datePart || "") + " " + (event.firstLine?.restTrimmed || "")).trim();
-      const textPx = measureTextWidth(fullText, "12px");
+      // Date text rendered at 11px + 8px left margin
+      const dateTextPx = measureTextWidth(event.firstLine?.datePart || "", "11px") + 8;
+      // Title text rendered at 12px
+      const titleTextPx = measureTextWidth(event.firstLine?.restTrimmed || "", "12px");
+      // Completion indicator (checkmark 16px + 2px mr + fraction ~25px) + padding/gaps
+      const extraPx = 55;
+      const totalTextPx = dateTextPx + titleTextPx + extraPx;
       const barRight = scalelessDistanceBetweenDates(
         timelineStore.baselineLeftmostDate,
         eventRange.toDateTime
       );
-      const textScale = textPx / timelineStore.pageScaleBy24;
+      const textScale = totalTextPx / timelineStore.pageScaleBy24;
       const groupRight = left.value + dateWidth;
       const contentEnd = barRight + textScale;
       maxOverflow = Math.max(maxOverflow, contentEnd - groupRight);
