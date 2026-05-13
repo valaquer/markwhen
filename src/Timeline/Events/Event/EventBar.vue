@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import DragHandle from "../../Events/Event/Edit/DragHandle.vue";
 import { useTimelineStore } from "../../timelineStore";
 
 const timelineStore = useTimelineStore();
@@ -12,9 +11,6 @@ const props = defineProps<{
   width: number;
   taskNumerator: number;
   taskDenominator: number;
-  dragHandleListenerLeft: (e: MouseEvent | TouchEvent) => void;
-  dragHandleListenerRight: (e: MouseEvent | TouchEvent) => void;
-  editable: boolean;
   expandedRecurrence: number[];
 }>();
 const isGantt = computed(() => timelineStore.mode === "gantt");
@@ -80,18 +76,6 @@ const recurrenceTotalWidth = computed(
           }"
           :style="recurrencePercentBarStyleObj(instance)"
         ></div>
-        <template v-if="i === 0">
-          <drag-handle
-            class="pointer-events-auto"
-            v-show="editable && hovering"
-            :left="0"
-            :mouse-down-touch-start-listener="dragHandleListenerLeft" />
-          <drag-handle
-            class="pointer-events-auto"
-            v-show="editable && hovering"
-            :left="width"
-            :mouse-down-touch-start-listener="dragHandleListenerRight"
-        /></template>
       </div>
     </template>
   </div>

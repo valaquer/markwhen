@@ -13,9 +13,7 @@ import {
 import { ROW_HEIGHT } from "@/config/palette";
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import EventBar from "@/Timeline/Events/Event/EventBar.vue";
-import { useResize } from "@/Timeline/Events/Event/Edit/composables/useResize";
 import EventTitle from "./EventTitle.vue";
-import MoveWidgets from "./Edit/MoveWidgets.vue";
 import type { EventPath } from "@/Timeline/paths";
 import Fade from "@/Transitions/Fade.vue";
 import { recurrenceLimit } from "@/Timeline/timelineStore";
@@ -41,7 +39,6 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (event: "editDateRange", range: DateRange): void;
   (event: "hover", hovering: boolean): void;
 }>();
 
@@ -75,70 +72,21 @@ const canShowMeta = computed(() => {
   return false;
 });
 
-const {
-  dragHandleListenerLeft,
-  dragHandleListenerRight,
-  moveHandleListener,
-  tempFrom,
-  tempTo,
-} = useResize(
-  computed(() => props.rangeFrom),
-  computed(() => props.rangeTo),
-  () => emit("editDateRange", range.value)
-);
 
-const hoveringWidgets = ref(false);
 const elementHover = ref(false);
 
 watch(elementHover, (hovering) => emit("hover", hovering));
 
 const isHovering = computed(
-  () =>
-    elementHover.value ||
-    !!tempFrom.value ||
-    !!tempTo.value ||
-    hoveringWidgets.value ||
-    props.hovering
+  () => elementHover.value || props.hovering
 );
 
-const range = computed(() => {
-  const eventRange = toDateRange({
+const range = computed(() =>
+  toDateRange({
     fromDateTimeIso: props.rangeFrom,
     toDateTimeIso: props.rangeTo,
-  });
-  if (!tempFrom.value && !tempTo.value) {
-    return eventRange;
-  } else if (!tempFrom.value) {
-    if (+tempTo.value! > +eventRange.fromDateTime) {
-      return {
-        fromDateTime: eventRange.fromDateTime,
-        toDateTime: tempTo.value!,
-      };
-    } else {
-      return {
-        fromDateTime: tempTo.value!,
-        toDateTime: eventRange.fromDateTime,
-      };
-    }
-  } else if (!tempTo.value) {
-    if (+tempFrom.value < +eventRange.toDateTime) {
-      return {
-        fromDateTime: tempFrom.value,
-        toDateTime: eventRange.toDateTime,
-      };
-    } else {
-      return {
-        fromDateTime: eventRange.toDateTime,
-        toDateTime: tempFrom.value,
-      };
-    }
-  }
-  return {
-    fromDateTime:
-      +tempFrom.value < +tempTo.value ? tempFrom.value : tempTo.value,
-    toDateTime: +tempFrom.value < +tempTo.value ? tempTo.value : tempFrom.value,
-  };
-});
+  })
+);
 
 const expandedRecurrence = computed(() =>
   (props.recurrence
@@ -190,8 +138,6 @@ const percent = computed(() => {
 });
 
 const { top, isCollapsed } = useNodePosition(computed(() => props.path));
-
-const edit = () => timelineStore.showInEditor(props.path);
 
 const isGantt = computed(() => timelineStore.mode === "gantt");
 
@@ -273,19 +219,10 @@ const ganttTitleStyle = computed(() => {
     @mouseenter.passive="!isCollapsed && (elementHover = true)"
     @mouseleave.passive="elementHover = false"
   >
-    <move-widgets
-      v-if="!isCollapsed && source === 'default'"
-      v-show="isHovering"
-      :move="moveHandleListener"
-      :left="left"
-      @mouseenter.passive="hoveringWidgets = true"
-      @mouseleave.passive="hoveringWidgets = false"
-      @edit="edit"
-    />
     <div
       class="absolute top-0 bottom-0 flex items-center pr-4 text-xs text-gray-400 source"
       style="transform: translateX(-100%)"
-      v-else-if="!isCollapsed && isHovering"
+      v-if="source !== 'default' && !isCollapsed && isHovering"
     >
       {{ source }}
     </div>
@@ -307,9 +244,6 @@ const ganttTitleStyle = computed(() => {
           :width="dimensions.width"
           :taskNumerator="taskNumerator"
           :taskDenominator="taskDenominator"
-          :drag-handle-listener-left="dragHandleListenerLeft"
-          :drag-handle-listener-right="dragHandleListenerRight"
-          :editable="!isCollapsed && source === 'default'"
           :expandedRecurrence="expandedRecurrence"
         />
         <Fade>
