@@ -76,7 +76,7 @@ export const useNodeStore = defineStore("nodes", () => {
     }
     const children = arr.reduce((prev, curr, i) => {
       return prev + 1 + _numChildren(curr, [...path, i], childrenMap);
-    }, isSwimlane ? 2 + groupGaps * 2 : 0);
+    }, isSwimlane ? 2 + groupGaps * 1.5 : 0);
     return cache(children);
   };
 
@@ -279,10 +279,10 @@ export const useNodeStore = defineStore("nodes", () => {
           // Top padding: first child of swimlane
           pred += 1;
         } else {
-          // Gap between groups: previous sibling is a group (+2 to compensate for group padding)
+          // Gap between groups: previous sibling is a group (+1.5 for 30px gap)
           const prevSibNode = nodeArray.value.find(n => n.path.join(",") === prevPath);
           if (prevSibNode && !isEvent(prevSibNode.eventy)) {
-            pred += 2;
+            pred += 1.5;
           }
         }
       }

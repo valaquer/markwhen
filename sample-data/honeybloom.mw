@@ -82,19 +82,6 @@ style: section
 # Product #product
 style: section
 
-# Bronx #workbench
-style: section
-
-## HuggingFace Chat UI Fork #workbench
-
-2026-05-09: Story 1 — Strip HuggingFace overhead #workbench
-- [x] Remove auth, MCP, router, voice, file uploads, rate limiting, metrics
-- [x] App starts clean on localhost:5174
-
-2026-05-09: Story 2 — Full Pipeline wiring #workbench
-- [x] Wire User LLM → Director → Actress → Cutter chain with SSE streaming
-- [x] Boss experiences latency on production architecture
-
 # Growth #growth
 style: section
 
