@@ -44,8 +44,8 @@ const styleObject = computed(() => {
     const border = `1px solid rgba(${color.value}, ${
       isDetailEvent.value ? "0.95" : props.hovering ? "0.75" : "0.6"
     })`;
-    obj.borderTop = border;
-    obj.borderBottom = border;
+    obj.borderTop = isGroupStyle.value ? `2px solid blue` : `2px solid red`;
+    obj.borderBottom = isGroupStyle.value ? `2px solid pink` : `2px solid green`;
     if (isGroupStyle.value) {
       obj.borderLeft = border;
       obj.borderRight = border;

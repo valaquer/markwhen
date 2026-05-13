@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ROW_HEIGHT, HEADER_OFFSET } from "@/config/palette";
+import { ROW_HEIGHT, HEADER_OFFSET, SWIMLANE_PADDING } from "@/config/palette";
 import { computed, ref, watch } from "vue";
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import { useEventColor } from "../composables/useEventColor";
@@ -129,7 +129,7 @@ const width = computed(
 
 const top = computed(() => HEADER_OFFSET + props.numAbove * ROW_HEIGHT);
 
-const height = computed(() => ROW_HEIGHT + props.numChildren! * ROW_HEIGHT);
+const height = computed(() => ROW_HEIGHT + props.numChildren! * ROW_HEIGHT + (groupStyle.value === "section" ? SWIMLANE_PADDING : 0));
 
 const styleObject = computed(() => ({
   top: `${top.value}px`,

@@ -1,4 +1,4 @@
-import { ROW_HEIGHT, HEADER_OFFSET } from "@/config/palette";
+import { ROW_HEIGHT, HEADER_OFFSET, SWIMLANE_PADDING } from "@/config/palette";
 import { recurrenceLimit } from "@/Timeline/timelineStore";
 import { ranges } from "@/utilities/ranges";
 import { isEvent, iter, toArray } from "@markwhen/parser";
@@ -67,9 +67,10 @@ export const useNodeStore = defineStore("nodes", () => {
     }
 
     const arr = node.children;
+    const isSwimlane = (node as any).style === "section";
     const children = arr.reduce((prev, curr, i) => {
       return prev + 1 + _numChildren(curr, [...path, i], childrenMap);
-    }, 0);
+    }, isSwimlane ? 2 : 0);
     return cache(children);
   };
 
@@ -129,7 +130,7 @@ export const useNodeStore = defineStore("nodes", () => {
           const numAbove = predecessorMap.value.get(joinedPath) || 0;
           const children = childrenMap.value.get(joinedPath) || 0;
           const top = HEADER_OFFSET + numAbove * ROW_HEIGHT;
-          const height = ROW_HEIGHT + children * ROW_HEIGHT;
+          const height = ROW_HEIGHT + children * ROW_HEIGHT + (eventy.style === "section" ? SWIMLANE_PADDING : 0);
           const vp = timelineStore.pageSettings.viewport;
 
           const bottomOfSection = top + height;
@@ -261,6 +262,15 @@ export const useNodeStore = defineStore("nodes", () => {
       prevPath.split(",").length === ourPathJoined.split(",").length
     ) {
       pred += childrenMap.get(prevPath) || 0;
+    }
+    // Add top padding for first child of a swimlane
+    const parentPath = path.slice(0, -1);
+    if (path[path.length - 1] === 0 && parentPath.length > 0) {
+      const parentJoined = parentPath.join(",");
+      const parentNode = nodeArray.value.find(n => n.path.join(",") === parentJoined);
+      if (parentNode && !isEvent(parentNode.eventy) && (parentNode.eventy as any).style === "section") {
+        pred += 1;
+      }
     }
     return cache(pred);
   };

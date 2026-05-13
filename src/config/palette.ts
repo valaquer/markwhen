@@ -83,6 +83,7 @@ export const rgb = (v: string) => v.replace(/ /g, ", ");
 // Layout constants — single source of truth for spacing and sizing.
 export const ROW_HEIGHT = 20;
 export const HEADER_OFFSET = 100;
+export const SWIMLANE_PADDING = 20;
 
 export const TAG_COLORS = [
   "22, 163, 76",
