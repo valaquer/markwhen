@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTimelineStore } from "../timelineStore";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import TimelineScale from "../Settings/TimelineScale.vue";
 import AutoCenter from "./AutoCenter.vue";
 import CollapseAll from "./CollapseAll.vue";
@@ -49,6 +49,12 @@ const copyEmbedLink = async () =>
   copyToClipboard(markwhenStore.embedLink, "embed code ");
 
 const goToNow = () => timelineStore.goToNow();
+
+const facadeOpen = ref(false);
+const openFacade = () => {
+  window.open('http://localhost:51730', '_blank');
+  facadeOpen.value = true;
+};
 </script>
 
 <template>
@@ -61,6 +67,16 @@ const goToNow = () => timelineStore.goToNow();
     >
       <div class="flex flex-row gap-2 pt-16">
         <div class="bg-th-surface flex flex-row gap-2 px-2">
+          <div class="flex flex-row pointer-events-auto shrink-0">
+            <button
+              @click="openFacade"
+              class="flex items-center gap-1 rounded px-2 py-0.5 transition"
+              :class="facadeOpen ? 'text-th-text-muted' : 'hover:bg-th-hover-bg'"
+              style="font-size: 10px;"
+            >
+              {{ facadeOpen ? 'Facade is open' : 'Fire up Facade' }}
+            </button>
+          </div>
           <div
             class="flex flex row overflow-visible p-[2px] pointer-events-auto"
             style="grid-area: gantt"
