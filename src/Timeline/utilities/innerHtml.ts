@@ -24,6 +24,7 @@ function addHttpIfNeeded(s: string): string {
   if (
     s.startsWith("http://") ||
     s.startsWith("https://") ||
+    s.startsWith("obsidian://") ||
     s.startsWith("/")
   ) {
     return s;

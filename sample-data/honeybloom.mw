@@ -1,5 +1,5 @@
-title: Honeybloom — Sprint 22
-description: Cernere Chat Model Tournament timeline — 2-week sprint (Apr 28 – May 11 2026)
+title: Honeybloom – Sprint 22
+description: Cernere Chat Model Tournament timeline – 2-week sprint (Apr 28 – May 11 2026)
 
 #strategy: #808080
 #tooling: #808080
@@ -7,7 +7,9 @@ description: Cernere Chat Model Tournament timeline — 2-week sprint (Apr 28 �
 #product: #808080
 #growth: #808080
 #finance: #808080
-#personal: #808080
+#legal: #808080
+#personalfinances: #808080
+#car: #808080
 
 # Strategy #strategy
 style: section
@@ -21,12 +23,69 @@ style: section
 # Product #product
 style: section
 
+2026-05-18/2026-05-25: [Ariel – Reddit Community Funnel](obsidian://open?vault=honeybloom&file=library/pm/projects/ariel) #product
+
 # Growth #growth
 style: section
 
 # Finance #finance
 style: section
 
-# Personal #personal
+2026-05-24/2026-05-26: Vercel Pro trial – decide keep or cancel (autopay May 26) #finance
+
+# Legal & Compliance #legal
 style: section
+
+## Acorn 2026 – Tax Filing #legal
+
+2026-06-01/2026-06-14: Phase 1 – Document Gathering #legal
+- [ ] DEGIRO tax summary (request from DEGIRO if needed)
+- [ ] ALG I Bescheinigung from Agentur fuer Arbeit
+- [ ] Lohnsteuerbescheinigung 2025 (if any)
+- [ ] Notary invoice (Gruendung Sep 2025)
+- [ ] oovar.ai domain receipt
+- [ ] FYRST bank statements 2025
+
+2026-06-14/2026-06-28: Phase 2 – DEGIRO Reconciliation #legal
+- [ ] FIFO cost basis calculation (14 sell transactions)
+- [ ] Dividend income ($347 SPDR S&P 500)
+- [ ] Map gains to Anlage KAP fields
+
+2026-06-28/2026-07-12: Phase 3 – Personal Filing (Einkommensteuererklaerung) #legal
+- [ ] ELSTER/WISO setup
+- [ ] Anlage KAP (capital gains)
+- [ ] ALG I Progressionsvorbehalt
+- [ ] Zusammenveranlagung (Steuerklasse III)
+
+2026-06-28/2026-07-12: Phase 4 – UG Filing (KSt/GewSt + E-Bilanz) #legal
+- [ ] eBilanz+ account setup (~EUR 35)
+- [ ] Eroeffnungsbilanz (Nov 5, 2025 – ausstehende Einlage)
+- [ ] Simplified Bilanz + GuV (Rumpfgeschaeftsjahr Nov-Dec 2025)
+- [ ] Kontennachweis (account balances)
+- [ ] ELSTER KSt + GewSt forms
+- [ ] Verlustvortrag (losses carry forward)
+
+2026-07-12/2026-07-21: Phase 5 – Review & Submit #legal
+- [ ] Boss reviews both filings
+- [ ] Submit personal via ELSTER
+- [ ] Submit UG via ELSTER + eBilanz+
+
+2026-07-21/2026-07-31: Buffer #legal
+
+# Personal Finances #personalfinances
+style: section
+
+## Run Rate Analysis #personalfinances
+
+2026-05-15: Analysis #personalfinances
+- [x] Analyze Deutsche Bank transactions
+- [x] Update net worth (EUR 134,799)
+- [x] Confirm runway (~27 months)
+
+2026-06-01: Analysis #personalfinances
+
+# Car #car
+style: section
+
+2026-11-14: Tire swap – Reifen Weissensee, 10:40 AM #car
 
