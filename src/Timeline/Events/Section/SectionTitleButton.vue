@@ -50,13 +50,13 @@ const click = (e: MouseEvent) => emit("click", e);
         :class="{ 'gradient-text': groupStyle === 'section' }"
         v-if="titleHtml"
         v-html="titleHtml"
-        :style="groupStyle === 'section' ? 'font-size: 13px; font-weight: 500;' : 'font-size: 12px;'"
+        :style="groupStyle === 'section' ? 'font-size: 13px; font-weight: 500;' : 'font-size: 12px; font-weight: 700;'"
       >
       </span>
       <span
         class="eventTitle whitespace-nowrap ml-1"
         :class="{ 'gradient-text': groupStyle === 'section' }"
-        :style="groupStyle === 'section' ? 'font-size: 11px; font-weight: 500;' : 'font-size: 10px;'"
+        :style="groupStyle === 'section' ? 'font-size: 11px; font-weight: 500;' : 'font-size: 10px; color: #999;'"
         v-if="!expanded"
         >({{ numChildren }})</span
       >
@@ -74,5 +74,10 @@ const click = (e: MouseEvent) => emit("click", e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+.eventTitle :deep(a) {
+  color: #888;
+  font-weight: 400;
+  text-decoration: none;
 }
 </style>

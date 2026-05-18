@@ -1,5 +1,5 @@
-title: Honeybloom – Sprint 22
-description: Cernere Chat Model Tournament timeline – 2-week sprint (Apr 28 – May 11 2026)
+title: Honeybloom – Sprint 24
+description: Revenue-first sprint – email waitlist, visual pipeline, content, community
 
 #strategy: #808080
 #tooling: #808080
@@ -9,6 +9,7 @@ description: Cernere Chat Model Tournament timeline – 2-week sprint (Apr 28 �
 #finance: #808080
 #legal: #808080
 #personalfinances: #808080
+#milestone: #16A34A
 #car: #808080
 
 # Strategy #strategy
@@ -23,20 +24,34 @@ style: section
 # Product #product
 style: section
 
-2026-05-18/2026-05-25: [Ariel – Reddit Community Funnel](obsidian://open?vault=honeybloom&file=library/pm/projects/ariel) #product
+2026-05-30: MILESTONE – Email Waitlist Launch #milestone #product
+2026-07-15: MILESTONE – Product Soft Launch (Payment Provider Review) #milestone #product
+2026-08-15: MILESTONE – Product Launch #milestone #product
 
 # Growth #growth
 style: section
 
-# Finance #finance
-style: section
+## Ariel [(link)](obsidian://open?vault=honeybloom&file=library/pm/projects/ariel) #growth
 
-2026-05-24/2026-05-26: Vercel Pro trial – decide keep or cancel (autopay May 26) #finance
+2026-05-18/2026-05-30: Phase 1 – Thought Leadership #growth
+2026-05-30/2026-07-15: Phase 2 – Passive Funnel #growth
+2026-07-15/2026-08-15: r/provoque Pre-Seeding #growth
+2026-08-15: Phase 3 – Founder Reveal #growth
+2026-08-15/2026-09-15: Phase 4 – Open Builder #growth
 
-# Legal & Compliance #legal
-style: section
+## Cocaine [(link)](obsidian://open?vault=honeybloom&file=library/pm/projects/cocaine) #growth
 
-## Acorn 2026 – Tax Filing #legal
+2026-05-18/2026-05-31: Research for Edition 1 #growth
+2026-06-01: Edition 1 #growth
+
+## Ember [(link)](obsidian://open?vault=honeybloom&file=library/pm/projects/ember) #growth
+
+2026-05-18/2026-05-22: Phase 1 – Creative Brief #growth
+2026-05-22/2026-05-26: Phase 2 – Copy Variants #growth
+2026-05-26/2026-05-28: Phase 3 – Boss Review #growth
+2026-05-28/2026-05-30: Phase 4 – Handoff to Lisbon #growth
+
+## Acorn [(link)](obsidian://open?vault=honeybloom&file=library/pm/projects/acorn) #legal
 
 2026-06-01/2026-06-14: Phase 1 – Document Gathering #legal
 - [ ] DEGIRO tax summary (request from DEGIRO if needed)
@@ -88,4 +103,5 @@ style: section
 style: section
 
 2026-11-14: Tire swap – Reifen Weissensee, 10:40 AM #car
+
 

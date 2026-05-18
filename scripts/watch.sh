@@ -13,7 +13,7 @@ while true; do
     CURRENT_HASH=$(md5 -q "$MW_FILE" 2>/dev/null)
     if [ "$CURRENT_HASH" != "$LAST_HASH" ] && [ -n "$LAST_HASH" ]; then
         echo "$(date '+%H:%M:%S') Change detected — re-rendering..."
-        node "$FORK_DIR/scripts/render.mjs" "$MW_FILE" "$OUTPUT"
+        /opt/homebrew/bin/node "$FORK_DIR/scripts/render.mjs" "$MW_FILE" "$OUTPUT"
         osascript -e 'tell application "Safari"
             set targetURL to "markwhen-fork.html"
             repeat with w in windows
